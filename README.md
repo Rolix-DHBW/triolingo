@@ -33,7 +33,7 @@ Um die Entwicklungsumgebung zu starten, führen Sie den folgenden Befehl aus:
    npm run dev
    ```
 
-## Erstellen für die Produktion
+## Erstellen der Produktionsversion
 
 Um eine Produktionsversion Ihres Projekts zu erstellen, führen Sie den folgenden Befehl aus:
    ```bash
