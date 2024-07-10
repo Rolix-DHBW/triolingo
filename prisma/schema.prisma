@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      Int       @id @default(autoincrement())
+  name                    String
+  email                   String    @unique
+  password                String
+  isAdmin                 Boolean   @default(false)
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+  kurseAbgeschlossen      Kurs[]    @relation("KurseAbgeschlossen")
+  lektionenAbgeschlossen  Lektion[] @relation("LektionenAbgeschlossen")
+  questionsAnswered       Frage[]   @relation("UserQuestionsAnswered")
+  questionsAnsweredRight  Frage[]   @relation("UserQuestionsAnsweredRight")
+}
+
+model Kurs {
+  id                Int      @id @default(autoincrement())
+  name              String
+  lektionen         Lektion[]
+  userAbgeschlossen User[]   @relation("KurseAbgeschlossen")
+}
+
+model Lektion {
+  id                    Int      @id @default(autoincrement())
+  name                  String
+  kursId                Int
+  kurs                  Kurs     @relation(fields: [kursId], references: [id], onDelete: Cascade)
+  fragen                Frage[]
+  userAbgeschlossen     User[]   @relation("LektionenAbgeschlossen")
+}
+
+model Frage {
+  id                   Int      @id @default(autoincrement())
+  frage                String
+  lektionId            Int
+  lektion              Lektion  @relation(fields: [lektionId], references: [id], onDelete: Cascade)
+  antworten            Anwort[]
+  usersAnswered        User[]   @relation("UserQuestionsAnswered")
+  usersAnsweredRight   User[]   @relation("UserQuestionsAnsweredRight")
+}
+
+model Anwort {
+  id                   Int      @id @default(autoincrement())
+  content              String
+  isCorrect            Boolean  @default(false)
+  questionId           Int
+  question             Frage    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
