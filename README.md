@@ -16,11 +16,11 @@ Führen Sie die folgenden Schritte aus, um das Projekt auf Ihrem lokalen Rechner
 
 1. Klonen Sie das Repository:
    ```bash
-   git clone https://github.com/r00bit1984/web-engineering-projekt.git
+   git clone https://github.com/Rolix-DHBW/triolingo.git
 
 2. Navigieren Sie in das Projektverzeichnis:
    ```bash
-   cd web-engineering-projekt
+   cd triolingo
 
 3. Installieren Sie die Abhängigkeiten:
    ```bash
