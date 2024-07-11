@@ -214,7 +214,7 @@ export default function FrageSeite({ params }: Params) {
   return (
     <>
       <h1 style={{ textAlign: "center", margin: "1%", fontSize: "2rem" }}>
-        {frage ? "" : "Laden..."}
+        {frage ? frage.frage : "Laden..."}
       </h1>
       <Link href={`/Kurse/${params.id}/Lektion/${params.lektionId}`}>
         <Button
@@ -273,7 +273,7 @@ export default function FrageSeite({ params }: Params) {
                     minHeight: "80px",
                   }}
                   onClick={() =>
-                    user?.isAdmin ? null : handleAnswerClick(antwort.id)
+                      user?.isAdmin || !user ? null : handleAnswerClick(antwort.id)
                   }
                 >
                   {/*Wenn die Antwort die selbe ID hat wie die Antwort die gerade geändert wird,

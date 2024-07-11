@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 
-export default function CreateCourseModal({ onCourseAdded }) {
+export default function CreateCourseModal({ fetchFrage }: CreateCourseModalProps) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -30,7 +30,7 @@ export default function CreateCourseModal({ onCourseAdded }) {
         const data = await res.json();
         setName("");
         handleClose();
-        onCourseAdded();
+        fetchFrage();
       } else {
         console.error("Registrierung fehlgeschlagen");
       }

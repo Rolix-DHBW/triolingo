@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 
 export default function CreateLektionModal({
-  onLektionAdded,
+  fetchLektionen,
   kursId,
 }: CreateLektionModalProps) {
   // Zustand für das Öffnen und Schließen des Modals
@@ -35,7 +35,7 @@ export default function CreateLektionModal({
         const data = await res.json();
         setName("");
         handleClose();
-        onLektionAdded();
+        fetchLektionen();
       } else {
         console.error("Lektion creation failed");
       }
