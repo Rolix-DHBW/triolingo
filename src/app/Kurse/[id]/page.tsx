@@ -254,7 +254,7 @@ export default function KursSeite({ params }: Params) {
       {user?.isAdmin && kurs && (
         <Box sx={{ display: "flex", justifyContent: "center", marginTop: 4 }}>
           <CreateLektionModal
-            onLektionAdded={fetchLektionen}
+            fetchLektionen={fetchLektionen}
             kursId={kurs.id}
           />
         </Box>

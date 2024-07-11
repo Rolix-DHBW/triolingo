@@ -221,7 +221,7 @@ export default function KurseSeite() {
       </Box>
       {user?.isAdmin && (
         <Box sx={{ display: "flex", justifyContent: "center", marginTop: 4 }}>
-          <CreateCourseModal onCourseAdded={fetchKurse} />
+          <CreateCourseModal fetchFrage={fetchKurse} />
         </Box>
       )}
     </>
