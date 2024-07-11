@@ -42,8 +42,8 @@ export default function Blog() {
   return (
     <>
       <h1 style={{ textAlign: "center", margin: "1%", fontSize: "2rem" }}>
-        {kurse && kurse.length > 0 ? "Statistiken" : "Loading..."} //
-        Überschrift abhängig von der Anzahl der Kurse anzeigen
+        {kurse && kurse.length > 0 ? "Statistiken" : "Loading..."}
+        {/* Überschrift abhängig von der Anzahl der Kurse anzeigen */}
       </h1>
 
       {user?.isAdmin ? ( // Wenn der Benutzer ein Administrator ist
@@ -56,8 +56,8 @@ export default function Blog() {
               alignItems: "center",
             }}
           >
-            <h2 className="m-3 font-bold">Benutzeranzahl: {totalUsers}</h2> //
-            Anzahl der Benutzer anzeigen
+            <h2 className="m-3 font-bold">Benutzeranzahl: {totalUsers}</h2>
+            {/* Anzahl der Benutzer anzeigen */}
             <TableContainer
               component={Paper}
               sx={{ width: "80%", maxWidth: 1200 }}
@@ -109,8 +109,8 @@ export default function Blog() {
             alignItems: "center",
           }}
         >
-          <p>Sei ein Admin um diese Statistik zu sehen</p> // Meldung anzeigen,
-          wenn der Benutzer kein Administrator ist
+          <p>Sei ein Admin um diese Statistik zu sehen</p> 
+          {/* Meldung anzeigen, wenn der Benutzer kein Administrator ist */}
         </Box>
       )}
     </>
