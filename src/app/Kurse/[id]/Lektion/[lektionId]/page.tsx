@@ -52,7 +52,7 @@ export default function LektionSeite({params}: Params) {
     //Bereits beantwortete Fragen fetchen
     const fetchAnsweredQuestions = useCallback(async () => {
         try {
-            const response = await fetch(`/api/User/${user.id}/answeredQuestions`, {
+            const response = await fetch(`/api/User/${user?.id}/answeredQuestions`, {
                 method: "GET",
             });
             if (response.ok) {
@@ -65,7 +65,7 @@ export default function LektionSeite({params}: Params) {
         } catch (error) {
             console.error("Error:", error);
         }
-    }, [user.id]);
+    }, [user?.id]);
 
     //Wenn die Änderung gespeichert wird, einen API Call zum Backend machen
     const handleSave = async (frageId: number) => {
@@ -188,6 +188,11 @@ export default function LektionSeite({params}: Params) {
                     lektion.fragen.map((frage) => {
                         const isAnswered = answeredQuestions.includes(frage.id);
                         const isCorrect = answeredRightQuestions.includes(frage.id);
+                        const backgroundColor = user && isAnswered
+                            ? isCorrect
+                                ? "#90EE90"
+                                : "#FFB6C1"
+                            : "white";
                         return (
                             <Card
                                 variant="outlined"
@@ -196,11 +201,7 @@ export default function LektionSeite({params}: Params) {
                                     width: "100%",
                                     padding: 2,
                                     boxSizing: "border-box",
-                                    backgroundColor: isAnswered
-                                        ? isCorrect
-                                            ? "#90EE90"
-                                            : "#FFB6C1"
-                                        : "white",
+                                    backgroundColor: backgroundColor,
                                     color: "black",
                                 }}
                             >

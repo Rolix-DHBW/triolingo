@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import Box from "@mui/material/Box";
@@ -76,7 +76,7 @@ export default function KursSeite({params}: Params) {
         } catch (error) {
             console.error("Error:", error);
         }
-    }, [user.id]);
+    }, [user?.id]);
 
     // Wenn eine Lektion bearbeitet wird, setze die EditingLektionId und den Namen auf die jeweiligen Details
     const handleEdit = (lektion: Lektion) => {
@@ -191,7 +191,7 @@ export default function KursSeite({params}: Params) {
                         const status = lektionenStatus.find(
                             (status) => status.lektionId === lektion.id,
                         );
-                        const backgroundColor = status?.alleRichtigBeantwortet
+                        const backgroundColor = user && status?.alleRichtigBeantwortet
                             ? "#90EE90"
                             : "white";
                         return (
