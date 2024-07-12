@@ -1,9 +1,12 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import { CardActionArea, CardContent, CardMedia } from "@mui/material";
+import { CardActionArea, CardContent, CardMedia, Menu } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "next/link";
+import FeedIcon from "@mui/icons-material/Feed";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 export default function HomePage() {
   return (
@@ -87,14 +90,10 @@ export default function HomePage() {
       >
         {/* Karte für die Kurse */}
         <Link href="/Kurse" passHref>
-          <Card sx={{ maxWidth: 345, mx: "auto" }}>
+          <Card sx={{ minWidth: 345, minHeight: 345, mx: "auto", textAlign: "center" }}>
             <CardActionArea>
-              <CardMedia
-                component="img"
-                image="/Kurse.png"
-                alt="Logo für Kurse"
-                sx={{ height: 200, objectFit: "contain" }}
-              />
+              <MenuBookIcon sx={{ fontSize: "13rem" }} ></MenuBookIcon>
+
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   Kurse
@@ -109,14 +108,11 @@ export default function HomePage() {
         </Link>
         {/* Karte für die Statistiken */}
         <Link href="/Statistiken" passHref>
-          <Card sx={{ maxWidth: 345, mx: "auto" }}>
+        <Card sx={{ minWidth: 345, minHeight: 345, mx: "auto", textAlign: "center" }}>
             <CardActionArea>
-              <CardMedia
-                component="img"
-                image="/Statistiken.jpg"
-                alt="Logo für Statistiken"
-                sx={{ height: 200, objectFit: "contain" }}
-              />
+              <CardMedia sx={{ height: 200, objectFit: "contain" }}>
+                <QueryStatsIcon sx={{ fontSize: "13rem" }} />
+              </CardMedia>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   Statistiken
@@ -129,16 +125,10 @@ export default function HomePage() {
             </CardActionArea>
           </Card>
         </Link>
-        {/* Karte für den Blog */}
         <Link href="/Blog" passHref>
-          <Card sx={{ maxWidth: 345, mx: "auto" }}>
+        <Card sx={{ minWidth: 345, minHeight: 345, mx: "auto", textAlign: "center" }}>
             <CardActionArea>
-              <CardMedia
-                component="img"
-                image="/News.png"
-                alt="Logo für Blog"
-                sx={{ height: 200, objectFit: "contain" }}
-              />
+              <FeedIcon sx={{ fontSize: "13rem" }}></FeedIcon>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   Blog
